@@ -9,7 +9,7 @@ app.get("/representatives/:state", findRepresentativesByState, jsonResponse);
 
 app.get("/senators/:state", findSenatorsByState, jsonResponse);
 
-const states = [
+const statesAbbrs = [
 	"AL",
 	"AK",
 	"AZ",
@@ -62,7 +62,7 @@ const states = [
 	"WY",
 ];
 app.get("/state-codes", (req, res) => {
-	res.send(states);
+	res.send(statesAbbrs);
 });
 function findRepresentativesByState(req, res, next) {
 	const url = `http://whoismyrepresentative.com/getall_reps_bystate.php?state=${req.params.state}&output=json`;
